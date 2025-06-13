@@ -20,11 +20,17 @@ def hangman(lives, word):
     letters_guessed = []
     incorrect_guesses = []
 
+    # variable representing the state of the word (_ are unguessed letters)
+    word_state = ["_" for c in chars]
+
     while letters_remaining > 0 and lives_left > 0:
+        # at the top of the round, print current word state
+        print("\nWord: " + " ".join(word_state))
+
         guess = input("Guess a letter: ").lower()
 
-        # make sure guess is a letter (non-empty)
-        if not guess:
+        # make sure guess is a letter (non-empty, non whitespace, non numeric)
+        if not guess or not guess.isalpha() or len(guess) != 1:
             print("Please enter a letter.")
             continue
         
@@ -35,17 +41,24 @@ def hangman(lives, word):
         #if correct guess
         elif guess in chars:
             letters_guessed.append(guess)
+
+            # Reveal all positions with the guessed letter
+            for i, char in enumerate(chars):
+                if char == guess:
+                    word_state[i] = guess 
+
             letters_remaining -= 1
             print(f"Correct! You have {letters_remaining} letters to guess")
+            
+            if letters_remaining == 0:
+                return(f"Congrats, you won with {lives_left} lives remaining! The word was {word}!")
+ 
         else:
             incorrect_guesses.append(guess)
             lives_left -= 1
             print(f"Incorrect...You have {lives_left} lives left and {letters_remaining} letters to guess")
-        
-    if lives_left == 0:
-        return(f"You lose! The word was {word}!")
-    elif letters_remaining == 0:
-        return(f"Congrats, you win! The word was {word}!")
+    
+    return(f"You lose! The word was {word}!")
 
 def run_hangman_game():
     numlives = int(input("Enter desired number of lives: "))
@@ -55,5 +68,5 @@ def run_hangman_game():
 
     print(hangman(numlives, word))
 
-hangman(5, "apple")
+run_hangman_game()
 

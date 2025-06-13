@@ -1,9 +1,5 @@
-'''
-Projects for Nick Walter's "Python for Programmers Course" on udemy
-This file contains various code snippets and projects from the course
-'''
-
-# Project 1: Grade Calculator
+# Project 1 from Nick Walter's "Python for Programmers Course" on udemy
+# Grade Calculator
 # This project calculates the grade of student "student_name" given their "score" and the total "points_possible"
 
 def calculate_grade(points_possible, score, student_name):
@@ -34,15 +30,8 @@ def grade_calculator():
     except ValueError:
         print("Invalid input for student score. Please enter a number.")
         return None
-
-    try:
-        student_name = input("Enter student name: ")
-        print("Valid input for student name.")
-    except ValueError:
-        print("Invalid input for student name. Please enter a string.")
-        return None
     
+    student_name = input("Enter student name: ")
     return calculate_grade(points_possible, score, student_name)
 
 #print(grade_calculator())
-

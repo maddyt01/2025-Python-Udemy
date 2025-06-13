@@ -1,5 +1,10 @@
 UDEMY PYTHON NOTES
 
+-python is dynamically typed (at runtime)
+-this means one variable can be assigned and reassigned to values of different types
+-don't need a semicolon to end lines
+-indentation for function / code hierarchy
+
 COMMENTING
 -single line comments:
     #can leave single line comments like this
@@ -67,5 +72,24 @@ USER INPUT
 -user input is by default consumed / saved as a string
 -if you want to take user input as a number or some other type, must explicitly type cast
 
-TYPE CHECKS
+FUNCTIONS
+-declare with def
+-parameters, can set default value ex. name="maddy", age=2
+-return values w return keyword
+-dont HAVE to return something
+-type checking example below:
+'''
+def printtype(val):
+    valtype = type(val)
+    if valtype == int:
+        return "Int"
+    elif valtype == float:
+        return "Float"
+    else:
+        return "String"
+'''
+
+LISTS, TUPLES, SETS
+-Python lists are arrays
+-can include values of different types 
 

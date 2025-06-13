@@ -92,4 +92,22 @@ def printtype(val):
 LISTS, TUPLES, SETS
 -Python lists are arrays
 -can include values of different types 
+-can insert into list -> list.insert(index, value)
+-delete items with del(list[index]) (index based)
+-list.remove(value) (value based)
+-len = length
+-tuples: immutable list, instead of square brackets, use parentheses, can cast with tuple() or list()
+-sets : unique set (no repeat values)
+-can change list to set with set()
+-set does not preserve order
+
+LOOPS
+-for loops
+    -to run x times, for y in range(x - 1)
+    -for x in y (y can be a list, set, etc, something with multiple values)
+-while loops 
+    -uses while keyword
+-break: immediately exit loop (does not finish remaining iterations)
+-continue: skip code below within loop, skip to the next iteration
+-else: can use else to define code you would run after a loop is done UNLESS we break out of the function
 
